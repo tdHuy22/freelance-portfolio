@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lantern Lane Coffee · Specialty coffee in Saigon</title>
+  <meta name="description" content="Small-batch Vietnamese coffee, fresh pastries and a quiet place to work. Order ahead or book a table.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Lantern Lane Coffee home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c-1.5 0-2.5 1-2.5 2.5V7h5V5.5C18.5 4 17.5 3 16 3Z M9 9h14l-1.5 15a3 3 0 0 1-3 2.7h-5a3 3 0 0 1-3-2.7Z" /></svg>
+        Lantern Lane
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <nav id="nav-links" class="nav-links" aria-label="Main">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#visit">Visit</a>
+        <a href="#order" class="btn btn-small">Order ahead</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Specialty coffee · District 3, Saigon</p>
+          <h1>Slow-roasted Vietnamese coffee, served the way you like it.</h1>
+          <p class="lead">Beans from Da Lat farms, roasted every Monday. Phin, espresso or cold brew, plus pastries baked each morning.</p>
+          <div class="hero-actions">
+            <a href="#order" class="btn">Order ahead</a>
+            <a href="#menu" class="btn btn-ghost">See the menu</a>
+          </div>
+          <ul class="hero-facts" aria-label="Quick facts">
+            <li><strong>7:00–22:00</strong><span>every day</span></li>
+            <li><strong>Free Wi-Fi</strong><span>and power at every table</span></li>
+            <li><strong>10 min</strong><span>pickup when you order ahead</span></li>
+          </ul>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 400 400">
+            <circle cx="200" cy="200" r="180" class="art-sun"/>
+            <path d="M120 170h160l-14 120a30 30 0 0 1-30 26h-72a30 30 0 0 1-30-26Z" class="art-cup"/>
+            <path d="M280 190h18a28 28 0 0 1 0 56h-24" class="art-handle"/>
+            <path d="M165 140c-10-18 10-28 0-46M200 140c-10-18 10-28 0-46M235 140c-10-18 10-28 0-46" class="art-steam"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <div class="container">
+        <h2>Menu</h2>
+        <p class="section-lead">A short menu, made well. Prices in VND.</p>
+        <div class="tabs" role="tablist" aria-label="Menu categories">
+          <button role="tab" aria-selected="true" aria-controls="tab-coffee" id="t-coffee">Coffee</button>
+          <button role="tab" aria-selected="false" aria-controls="tab-food" id="t-food" tabindex="-1">Food</button>
+        </div>
+        <div id="tab-coffee" role="tabpanel" aria-labelledby="t-coffee" class="menu-grid">
+          <article class="item"><h3>Cà phê sữa đá</h3><p>Phin-dripped robusta, condensed milk, ice.</p><span class="price">35.000</span></article>
+          <article class="item"><h3>Coconut coffee</h3><p>Espresso over frozen coconut cream.</p><span class="price">49.000</span></article>
+          <article class="item"><h3>Salted cream coffee</h3><p>Hue-style, with a light salted foam.</p><span class="price">45.000</span></article>
+          <article class="item"><h3>Cold brew</h3><p>18-hour steep of Da Lat arabica.</p><span class="price">55.000</span></article>
+        </div>
+        <div id="tab-food" role="tabpanel" aria-labelledby="t-food" class="menu-grid" hidden>
+          <article class="item"><h3>Butter croissant</h3><p>Baked at 6:30 every morning.</p><span class="price">32.000</span></article>
+          <article class="item"><h3>Bánh mì ốp la</h3><p>Fried eggs, pâté, pickles, chili.</p><span class="price">40.000</span></article>
+          <article class="item"><h3>Banana bread</h3><p>With roasted cashews.</p><span class="price">35.000</span></article>
+          <article class="item"><h3>Yogurt & fruit</h3><p>House yogurt, seasonal fruit.</p><span class="price">38.000</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-alt">
+      <div class="container about-grid">
+        <div>
+          <h2>Why people stay</h2>
+          <p class="section-lead">We opened as a place to drink good coffee slowly. Most guests stay for the second cup.</p>
+        </div>
+        <ul class="features">
+          <li><h3>Single farm beans</h3><p>We buy direct from two family farms near Da Lat and print the harvest date on every bag.</p></li>
+          <li><h3>Quiet hours</h3><p>No music before 10:00, so you can read or work.</p></li>
+          <li><h3>Order ahead</h3><p>Send your order and pickup time below. We have it ready when you arrive.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>What guests say</h2>
+        <p class="section-lead small">Sample reviews for this demo site.</p>
+        <div class="quotes">
+          <blockquote><p>“The salted cream coffee is worth crossing the city for.”</p><cite>Sample review</cite></blockquote>
+          <blockquote><p>“My go-to place to work on Saturday mornings.”</p><cite>Sample review</cite></blockquote>
+          <blockquote><p>“Ordered ahead, walked in, cup was waiting.”</p><cite>Sample review</cite></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="order" class="section section-alt">
+      <div class="container order-grid">
+        <div>
+          <h2>Order ahead</h2>
+          <p class="section-lead">Tell us what you want and when. We confirm by phone within 10 minutes during opening hours.</p>
+        </div>
+        <form class="order-form" novalidate>
+          <label>Name<input name="name" autocomplete="name" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9 +\(\)\-]{9,15}"></label>
+          <label>Your order<textarea name="order" rows="3" required placeholder="2 cà phê sữa đá, 1 croissant"></textarea></label>
+          <label>Pickup time<input name="time" type="time" min="07:00" max="21:30" required></label>
+          <button class="btn" type="submit">Send order</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="visit" class="section">
+      <div class="container visit-grid">
+        <div>
+          <h2>Visit</h2>
+          <p><strong>Address:</strong> 12 Lantern Lane, District 3, Ho Chi Minh City (fictional)</p>
+          <p><strong>Hours:</strong> 7:00–22:00, every day</p>
+          <p><strong>Phone:</strong> 0900 000 000 (placeholder)</p>
+        </div>
+        <div class="map" role="img" aria-label="Map placeholder">Map goes here (Google Maps embed)</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Lantern Lane Coffee. Demo website: the business, address and reviews are fictional.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

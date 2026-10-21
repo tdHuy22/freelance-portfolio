@@ -1,0 +1,11 @@
+Date,Order ID,Customer,Product,Qty,Unit Price,Status
+2026-10-01 08:12,1001,An Nguyen,Latte,2,3.50,Completed
+2026-10-01 09:40,1002,Binh Tran,Croissant,3,2.00,Completed
+2026-10-01 11:05,1003,Chi Le,Cold Brew,1,4.00,Cancelled
+2026-10-02 07:55,1004,Dung Pham,Latte,1,3.50,Completed
+2026-10-02 12:30,1005,Em Vo,Banh Mi,2,3.00,Completed
+2026-10-02 15:10,1006,Giang Do,Cold Brew,2,4.00,Completed
+2026-10-03 08:20,1007,Hoa Bui,Latte,4,3.50,Completed
+2026-10-03 10:45,1008,Khanh Ho,Croissant,2,2.00,Refunded
+2026-10-03 13:15,1009,Linh Dang,Banh Mi,3,3.00,Completed
+2026-10-04 09:00,1010,Minh Ngo,Cold Brew,3,4.00,Completed

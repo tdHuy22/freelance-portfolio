@@ -1,0 +1,25 @@
+[project]
+name = "excel-cleaner"
+version = "0.1.0"
+description = "Clean messy CSV and Excel exports and produce a review-ready Excel report"
+readme = "README.md"
+authors = [
+    { name = "tdHuy22", email = "146697250+tdHuy22@users.noreply.github.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.6",
+]
+
+[project.scripts]
+excel-cleaner = "excel_cleaner.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

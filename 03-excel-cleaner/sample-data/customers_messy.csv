@@ -1,0 +1,8 @@
+Order ID ,  Customer Name,Email,Phone,Region,Order Date,Amount
+A-001,  An   Nguyen ,AN.NGUYEN@Example.com ,0901 234 567,north,03/10/2026,"1,250,000"
+A-002,Binh Tran,binh.tran@example,+84 912-345-678,NORTH ,2026-10-04,"45.500 ₫"
+A-003,Chi Le,chi.le@example.com,(028) 3822 1234,South,5 Oct 2026,890000
+A-001,An Nguyen,an.nguyen@example.com,0901234567,North,03/10/2026,"1,250,000"
+,,,,,,
+A-004,Dung Pham, dung.pham@example.com,84933111222,south,not a date,"1.250.000 đ"
+A-005,Em Vo,em.vo@example.com,123,Central,07/10/2026,abc

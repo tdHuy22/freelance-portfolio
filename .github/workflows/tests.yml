@@ -1,0 +1,32 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  sheets:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 01-sheets-sales-automation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test
+
+  excel-cleaner:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 03-excel-cleaner
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv run pytest -q
