@@ -109,7 +109,7 @@ a { color: inherit; }
 .btn:hover::after { transform: translateY(0); }
 .btn-ghost { --bg: transparent; color: var(--text); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--ink); }
-.btn-small { padding: 0.6em 1.1em; font-size: 0.9rem; }
+.btn-small { padding: 0.6em 1.1em; font-size: 0.9rem; white-space: nowrap; }
 
 /* ---------- Header ---------- */
 .progress {
@@ -134,7 +134,7 @@ a { color: inherit; }
 .brand .brand-shine { fill: var(--son); }
 @media (prefers-color-scheme: dark) { .brand svg { fill: var(--text); } }
 .nav-links { display: flex; gap: 28px; }
-.nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; position: relative; }
+.nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; position: relative; white-space: nowrap; }
 .nav-links a::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1.5px;
   background: var(--son); transform: scaleX(0); transform-origin: right; transition: transform 0.35s var(--ease);
@@ -163,9 +163,10 @@ a { color: inherit; }
 h1.kinetic .word:last-of-type > span { color: var(--accent-text); font-style: italic; }
 
 /* Hero demo: paper bill -> table -> seal */
-.demo { position: relative; margin: 0; min-height: 440px; }
+/* Bill on top, table below, never overlapping: the bill's total line spans its full width. */
+.demo { position: relative; margin: 0; display: flex; flex-direction: column; }
 .paper {
-  position: absolute; top: 0; left: 0; width: 72%;
+  position: relative; width: 76%;
   padding: 26px 26px 22px;
   background: #fffdf7; color: #2a241d;
   border-radius: 6px;
@@ -186,7 +187,7 @@ h1.kinetic .word:last-of-type > span { color: var(--accent-text); font-style: it
   opacity: 0;
 }
 .sheet {
-  position: absolute; right: 0; bottom: 40px; width: 74%;
+  position: relative; width: 82%; margin: 18px 0 0 auto;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -194,12 +195,14 @@ h1.kinetic .word:last-of-type > span { color: var(--accent-text); font-style: it
   font: 400 0.85rem/1.2 var(--font-mono);
   overflow: hidden;
 }
-.sheet .row { display: grid; grid-template-columns: 1fr 44px 96px; gap: 8px; padding: 11px 16px; border-top: 1px solid var(--line); }
+.sheet .row { display: grid; grid-template-columns: 1fr 44px minmax(96px, auto); gap: 8px; padding: 11px 16px; border-top: 1px solid var(--line); }
+.sheet .head span { white-space: nowrap; }
 .sheet .row span:nth-child(n + 2) { text-align: right; }
 .sheet .head { border-top: 0; background: var(--ink); color: #f3ede2; font-weight: 600; }
 .sheet .total { font-weight: 600; color: var(--accent-text); }
 .seal {
-  position: absolute; right: 6%; top: 18%; width: 118px;
+  /* Stamped on the bill's empty top-right corner, clear of the amounts. */
+  position: absolute; right: 0; top: -40px; width: 104px; z-index: 2;
   transform: rotate(-14deg);
   mix-blend-mode: multiply;
 }
@@ -208,7 +211,7 @@ h1.kinetic .word:last-of-type > span { color: var(--accent-text); font-style: it
 .seal-ring.thin { stroke-width: 1.5; }
 .seal-arc { font: 700 10.5px/1 var(--font-body); letter-spacing: 1.6px; fill: var(--son); }
 .seal-star { fill: var(--son); }
-.demo figcaption { position: absolute; left: 0; bottom: 0; color: var(--muted); max-width: 40ch; }
+.demo figcaption { margin-top: 14px; color: var(--muted); max-width: 40ch; }
 
 /* Animated state (JS adds .play; reduced motion gets .done) */
 .js .sheet .row:not(.head), .js .seal { opacity: 0; }
@@ -370,13 +373,7 @@ h1.kinetic .word:last-of-type > span { color: var(--accent-text); font-style: it
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
-  .hero-grid, .how-grid, .faq-grid { grid-template-columns: 1fr; }
-  .how-intro { position: static; }
-  .bento { grid-template-columns: repeat(2, 1fr); }
-  .plans { grid-template-columns: 1fr; max-width: 520px; }
-  .demo { max-width: 560px; }
-}
-@media (max-width: 760px) {
+  /* Collapsed menu: the Vietnamese labels need more room than a tablet row has. */
   .nav-links {
     display: none; position: absolute; top: 72px; left: 0; right: 0;
     flex-direction: column; gap: 0; padding: 8px 16px 20px;
@@ -388,17 +385,23 @@ h1.kinetic .word:last-of-type > span { color: var(--accent-text); font-style: it
     display: inline-block; font: 600 0.9rem/1 var(--font-body); color: var(--text);
     background: transparent; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.6em 1em; cursor: pointer;
   }
+  .hero-grid, .how-grid, .faq-grid { grid-template-columns: 1fr; }
+  .how-intro { position: static; }
+  .bento { grid-template-columns: repeat(2, 1fr); }
+  .plans { grid-template-columns: 1fr; max-width: 520px; }
+  /* One column: the demo gets a narrower, centred frame. */
+  .demo { max-width: 560px; }
+  .sheet { width: 92%; }
+}
+@media (max-width: 760px) {
   .nav-actions .btn-small { display: none; }
   .stats { grid-template-columns: 1fr; gap: 28px; }
   .bento { grid-template-columns: 1fr; }
   .tile-xl, .tile-wide, .tile-tall { grid-column: auto; grid-row: auto; }
-  /* Stack the bill and the table so both stay readable on a phone. */
-  .demo { min-height: 0; display: flex; flex-direction: column; }
-  .paper { position: relative; width: 90%; padding: 20px; }
-  .sheet { position: relative; width: 94%; margin: -28px 0 0 auto; right: auto; bottom: auto; font-size: 0.78rem; }
+  .paper { width: 80%; padding: 20px; }
+  .sheet { width: 94%; font-size: 0.78rem; }
   .sheet .row { grid-template-columns: 1fr 26px auto; padding: 10px 12px; }
-  .seal { width: 88px; right: 0; top: 4%; }
-  .demo figcaption { position: static; margin-top: 14px; }
+  .seal { width: 84px; top: -34px; }
 }
 
 @media (max-width: 400px) {
