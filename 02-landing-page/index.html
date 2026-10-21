@@ -3,145 +3,286 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lantern Lane Coffee · Specialty coffee in Saigon</title>
-  <meta name="description" content="Small-batch Vietnamese coffee, fresh pastries and a quiet place to work. Order ahead or book a table.">
+  <title>Mực · Vietnamese paperwork, turned into clean data</title>
+  <meta name="description" content="Mực reads Vietnamese invoices, receipts and handwritten sales books and turns them into clean spreadsheets. Demo landing page.">
+  <meta name="theme-color" content="#f3ede2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    // Hide-until-animated styles apply only with JS; undo them if script.js never finishes.
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.mucReady) document.documentElement.classList.remove('js'); }, 3000);
+  </script>
+  <script src="i18n.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="container nav">
-      <a href="#" class="brand" aria-label="Lantern Lane Coffee home">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c-1.5 0-2.5 1-2.5 2.5V7h5V5.5C18.5 4 17.5 3 16 3Z M9 9h14l-1.5 15a3 3 0 0 1-3 2.7h-5a3 3 0 0 1-3-2.7Z" /></svg>
-        Lantern Lane
+      <a href="#top" class="brand" aria-label="Mực">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2c5 7 10 12 10 18a10 10 0 0 1-20 0c0-6 5-11 10-18Z"/><circle cx="12.5" cy="20" r="2.5" class="brand-shine"/></svg>
+        <span>Mực</span>
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
       <nav id="nav-links" class="nav-links" aria-label="Main">
-        <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#visit">Visit</a>
-        <a href="#order" class="btn btn-small">Order ahead</a>
+        <a href="#how" data-i18n="nav.how">How it works</a>
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
       </nav>
+      <div class="nav-actions">
+        <button class="lang" type="button">
+          <span data-lang="en">EN</span><span aria-hidden="true">/</span><span data-lang="vi">VI</span>
+        </button>
+        <a href="#start" class="btn btn-small" data-i18n="nav.cta">Try free</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" data-i18n="nav.menu">Menu</button>
+      </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
+    <!-- Hero -->
+    <section class="hero" id="top">
       <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">Specialty coffee · District 3, Saigon</p>
-          <h1>Slow-roasted Vietnamese coffee, served the way you like it.</h1>
-          <p class="lead">Beans from Da Lat farms, roasted every Monday. Phin, espresso or cold brew, plus pastries baked each morning.</p>
+        <div class="hero-copy">
+          <p class="eyebrow mono" data-i18n="hero.eyebrow">AI for Vietnamese paperwork</p>
+          <h1 class="kinetic" data-i18n="hero.title">Paper in. Clean data out.</h1>
+          <p class="lead" data-i18n="hero.lead">Mực reads VAT invoices, receipts and handwritten sales books, full Vietnamese diacritics included, and hands you a spreadsheet you can trust.</p>
           <div class="hero-actions">
-            <a href="#order" class="btn">Order ahead</a>
-            <a href="#menu" class="btn btn-ghost">See the menu</a>
+            <a href="#start" class="btn" data-i18n="hero.cta">Digitise your first 50 pages free</a>
+            <a href="#how" class="btn btn-ghost" data-i18n="hero.secondary">See how it works</a>
           </div>
-          <ul class="hero-facts" aria-label="Quick facts">
-            <li><strong>7:00–22:00</strong><span>every day</span></li>
-            <li><strong>Free Wi-Fi</strong><span>and power at every table</span></li>
-            <li><strong>10 min</strong><span>pickup when you order ahead</span></li>
-          </ul>
+          <p class="note mono" data-i18n="hero.note">No card needed · Files deleted after 24 h</p>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <svg viewBox="0 0 400 400">
-            <circle cx="200" cy="200" r="180" class="art-sun"/>
-            <path d="M120 170h160l-14 120a30 30 0 0 1-30 26h-72a30 30 0 0 1-30-26Z" class="art-cup"/>
-            <path d="M280 190h18a28 28 0 0 1 0 56h-24" class="art-handle"/>
-            <path d="M165 140c-10-18 10-28 0-46M200 140c-10-18 10-28 0-46M235 140c-10-18 10-28 0-46" class="art-steam"/>
-          </svg>
-        </div>
+
+        <figure class="demo" aria-labelledby="demo-caption">
+          <div class="paper" aria-hidden="true">
+            <p class="paper-title">HÓA ĐƠN BÁN HÀNG</p>
+            <p class="paper-meta">Ngày 03/10/2026 · Số 0042</p>
+            <ol class="paper-lines">
+              <li><span>Cà phê sữa đá ×2</span><span>70.000</span></li>
+              <li><span>Bánh mì ốp la ×1</span><span>40.000</span></li>
+              <li><span>Trà sen vàng ×3</span><span>105.000</span></li>
+              <li class="paper-total"><span>Tổng cộng</span><span>215.000đ</span></li>
+            </ol>
+            <div class="scanline"></div>
+          </div>
+
+          <div class="sheet" role="table" aria-label="Extracted invoice data" data-i18n-attr="aria-label:demo.table">
+            <div class="row head" role="row">
+              <span role="columnheader" data-i18n="demo.item">Item</span>
+              <span role="columnheader" data-i18n="demo.qty">Qty</span>
+              <span role="columnheader" data-i18n="demo.amount">Amount (₫)</span>
+            </div>
+            <div class="row" role="row"><span role="cell">Cà phê sữa đá</span><span role="cell">2</span><span role="cell">70000</span></div>
+            <div class="row" role="row"><span role="cell">Bánh mì ốp la</span><span role="cell">1</span><span role="cell">40000</span></div>
+            <div class="row" role="row"><span role="cell">Trà sen vàng</span><span role="cell">3</span><span role="cell">105000</span></div>
+            <div class="row total" role="row"><span role="cell" data-i18n="demo.total">Total</span><span role="cell"></span><span role="cell">215000</span></div>
+          </div>
+
+          <div class="seal" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="seal-arc" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+              <circle cx="60" cy="60" r="56" class="seal-ring"/>
+              <circle cx="60" cy="60" r="34" class="seal-ring thin"/>
+              <text class="seal-arc"><textPath href="#seal-arc" startOffset="0">ĐÃ SỐ HÓA · DIGITISED · ĐÃ SỐ HÓA ·</textPath></text>
+              <path d="M60 40 l5.9 12 13.1 1.9-9.5 9.3 2.3 13-11.8-6.2-11.8 6.2 2.3-13-9.5-9.3 13.1-1.9Z" class="seal-star"/>
+            </svg>
+          </div>
+          <figcaption id="demo-caption" class="mono" data-i18n="demo.caption">A handwritten bill becomes three clean rows in about six seconds.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section id="menu" class="section">
-      <div class="container">
-        <h2>Menu</h2>
-        <p class="section-lead">A short menu, made well. Prices in VND.</p>
-        <div class="tabs" role="tablist" aria-label="Menu categories">
-          <button role="tab" aria-selected="true" aria-controls="tab-coffee" id="t-coffee">Coffee</button>
-          <button role="tab" aria-selected="false" aria-controls="tab-food" id="t-food" tabindex="-1">Food</button>
-        </div>
-        <div id="tab-coffee" role="tabpanel" aria-labelledby="t-coffee" class="menu-grid">
-          <article class="item"><h3>Cà phê sữa đá</h3><p>Phin-dripped robusta, condensed milk, ice.</p><span class="price">35.000</span></article>
-          <article class="item"><h3>Coconut coffee</h3><p>Espresso over frozen coconut cream.</p><span class="price">49.000</span></article>
-          <article class="item"><h3>Salted cream coffee</h3><p>Hue-style, with a light salted foam.</p><span class="price">45.000</span></article>
-          <article class="item"><h3>Cold brew</h3><p>18-hour steep of Da Lat arabica.</p><span class="price">55.000</span></article>
-        </div>
-        <div id="tab-food" role="tabpanel" aria-labelledby="t-food" class="menu-grid" hidden>
-          <article class="item"><h3>Butter croissant</h3><p>Baked at 6:30 every morning.</p><span class="price">32.000</span></article>
-          <article class="item"><h3>Bánh mì ốp la</h3><p>Fried eggs, pâté, pickles, chili.</p><span class="price">40.000</span></article>
-          <article class="item"><h3>Banana bread</h3><p>With roasted cashews.</p><span class="price">35.000</span></article>
-          <article class="item"><h3>Yogurt & fruit</h3><p>House yogurt, seasonal fruit.</p><span class="price">38.000</span></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section section-alt">
-      <div class="container about-grid">
-        <div>
-          <h2>Why people stay</h2>
-          <p class="section-lead">We opened as a place to drink good coffee slowly. Most guests stay for the second cup.</p>
-        </div>
-        <ul class="features">
-          <li><h3>Single farm beans</h3><p>We buy direct from two family farms near Da Lat and print the harvest date on every bag.</p></li>
-          <li><h3>Quiet hours</h3><p>No music before 10:00, so you can read or work.</p></li>
-          <li><h3>Order ahead</h3><p>Send your order and pickup time below. We have it ready when you arrive.</p></li>
+    <!-- Marquee -->
+    <section class="marquee" aria-label="Supported documents" data-i18n-attr="aria-label:marquee.label">
+      <button class="marquee-pause" type="button" aria-pressed="false">Pause</button>
+      <div class="marquee-track">
+        <ul>
+          <li>Hóa đơn GTGT</li><li>Phiếu thu</li><li>Phiếu chi</li><li>Sổ bán hàng</li><li>Biên lai</li><li>Bảng chấm công</li><li>Phiếu nhập kho</li><li>Hợp đồng</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li>Hóa đơn GTGT</li><li>Phiếu thu</li><li>Phiếu chi</li><li>Sổ bán hàng</li><li>Biên lai</li><li>Bảng chấm công</li><li>Phiếu nhập kho</li><li>Hợp đồng</li>
         </ul>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Stats -->
+    <section class="stats container" aria-label="Key numbers" data-i18n-attr="aria-label:stats.label">
+      <div class="stat reveal"><strong class="count" data-to="6">6</strong><span class="unit" data-i18n="stats.u1">s / page</span><p data-i18n="stats.t1">average processing time</p></div>
+      <div class="stat reveal"><strong class="count" data-to="134">134</strong><span class="unit" data-i18n="stats.u2">accents</span><p data-i18n="stats.t2">Vietnamese letter forms recognised, ơ to ỹ</p></div>
+      <div class="stat reveal"><strong class="count" data-to="0">0</strong><span class="unit" data-i18n="stats.u3">rows</span><p data-i18n="stats.t3">you type by hand</p></div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="section how">
+      <div class="container how-grid">
+        <div class="how-intro">
+          <p class="eyebrow mono" data-i18n="how.eyebrow">How it works</p>
+          <h2 data-i18n="how.title">Three steps, no templates to set up.</h2>
+          <div class="how-meter" aria-hidden="true"><span></span></div>
+        </div>
+        <ol class="steps">
+          <li class="step reveal" data-step="0">
+            <span class="step-no mono">01</span>
+            <h3 data-i18n="how.s1">Snap or upload</h3>
+            <p data-i18n="how.s1t">Photos from your phone, scanned PDFs, a whole folder at once. Crooked, folded and coffee-stained pages are fine.</p>
+          </li>
+          <li class="step reveal" data-step="1">
+            <span class="step-no mono">02</span>
+            <h3 data-i18n="how.s2">Mực reads every line</h3>
+            <p data-i18n="how.s2t">It finds dates, tax codes, items and totals, fixes "70k" and "70.000đ" into one number, and checks that the lines add up to the total.</p>
+          </li>
+          <li class="step reveal" data-step="2">
+            <span class="step-no mono">03</span>
+            <h3 data-i18n="how.s3">Review, then export</h3>
+            <p data-i18n="how.s3t">Anything uncertain is highlighted for a ten-second look. Export to Excel, Google Sheets or CSV.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Before / after -->
+    <section class="section compare-section">
       <div class="container">
-        <h2>What guests say</h2>
-        <p class="section-lead small">Sample reviews for this demo site.</p>
-        <div class="quotes">
-          <blockquote><p>“The salted cream coffee is worth crossing the city for.”</p><cite>Sample review</cite></blockquote>
-          <blockquote><p>“My go-to place to work on Saturday mornings.”</p><cite>Sample review</cite></blockquote>
-          <blockquote><p>“Ordered ahead, walked in, cup was waiting.”</p><cite>Sample review</cite></blockquote>
+        <p class="eyebrow mono" data-i18n="cmp.eyebrow">Before / after</p>
+        <h2 data-i18n="cmp.title">Drag to see what Mực fixes.</h2>
+        <div class="compare" style="--pos: 50%">
+          <div class="compare-pane before" aria-hidden="true">
+            <div class="grid-table">
+              <span>ngày</span><span>khách</span><span>số tiền</span>
+              <span>3/10</span><span>  chị lan </span><span>70k</span>
+              <span>03-10-2026</span><span>ANH TUẤN</span><span>bảy mươi nghìn</span>
+              <span>4.10.26</span><span>Cô Hà</span><span>1.250.000 đ</span>
+              <span>5 thg 10</span><span>chị Lan</span><span>45,5</span>
+            </div>
+          </div>
+          <div class="compare-pane after" aria-hidden="true">
+            <div class="grid-table">
+              <span data-i18n="cmp.h1">Date</span><span data-i18n="cmp.h2">Customer</span><span data-i18n="demo.amount">Amount (₫)</span>
+              <span>2026-10-03</span><span>Chị Lan</span><span>70000</span>
+              <span>2026-10-03</span><span>Anh Tuấn</span><span>70000</span>
+              <span>2026-10-04</span><span>Cô Hà</span><span>1250000</span>
+              <span>2026-10-05</span><span>Chị Lan</span><span class="flag">45500 ?</span>
+            </div>
+          </div>
+          <div class="compare-handle" aria-hidden="true"><span></span></div>
+          <label class="sr-only" for="compare-range" data-i18n="cmp.label">Compare before and after</label>
+          <input id="compare-range" class="compare-range" type="range" min="0" max="100" value="50" aria-describedby="compare-desc">
+        </div>
+        <p id="compare-desc" class="sr-only" data-i18n="cmp.sr">Before: dates written as 3/10, 03-10-2026 and 4.10.26, names in mixed case, amounts such as 70k and "bảy mươi nghìn". After: every date as 2026-10-03, names capitalised, amounts as plain numbers in đồng, and one uncertain amount flagged for review.</p>
+        <p class="caption mono" data-i18n="cmp.note">The "?" marks a value Mực is not sure about. It asks you instead of guessing.</p>
+      </div>
+    </section>
+
+    <!-- Features bento -->
+    <section id="features" class="section">
+      <div class="container">
+        <p class="eyebrow mono" data-i18n="feat.eyebrow">Features</p>
+        <h2 data-i18n="feat.title">Built for how Vietnamese businesses actually keep records.</h2>
+        <div class="bento">
+          <article class="tile tile-xl reveal">
+            <span class="tile-kicker mono">ơ ư ă â ê ô đ</span>
+            <h3 data-i18n="feat.f1">Reads diacritics properly</h3>
+            <p data-i18n="feat.f1t">"Nguyễn" stays "Nguyễn", never "Nguyen" or "NguyÃªn". Handwriting included.</p>
+          </article>
+          <article class="tile reveal">
+            <span class="tile-kicker mono">MST · 0312345678</span>
+            <h3 data-i18n="feat.f2">VAT invoice fields</h3>
+            <p data-i18n="feat.f2t">Tax code, invoice number, VAT rate and totals land in their own columns.</p>
+          </article>
+          <article class="tile reveal">
+            <span class="tile-kicker mono">Σ = 215.000</span>
+            <h3 data-i18n="feat.f3">Self-checking totals</h3>
+            <p data-i18n="feat.f3t">Lines that do not add up are flagged before they reach your books.</p>
+          </article>
+          <article class="tile tile-tall reveal">
+            <span class="tile-kicker mono">.xlsx · .csv · Sheets</span>
+            <h3 data-i18n="feat.f4">Export anywhere</h3>
+            <p data-i18n="feat.f4t">Excel with formatting kept, Google Sheets in one click, or CSV for your accounting software.</p>
+            <ul class="formats mono" aria-hidden="true"><li>xlsx</li><li>csv</li><li>gsheet</li><li>json</li></ul>
+          </article>
+          <article class="tile tile-tall reveal">
+            <span class="tile-kicker mono">24h → ∅</span>
+            <h3 data-i18n="feat.f5">Private by default</h3>
+            <p data-i18n="feat.f5t">Uploads are deleted after 24 hours. Nothing is used to train models.</p>
+          </article>
+          <article class="tile tile-wide accent reveal">
+            <h3 data-i18n="feat.f6">Made in Vietnam, for Vietnamese paperwork.</h3>
+            <p data-i18n="feat.f6t">Phiếu thu, sổ bán hàng, bảng chấm công: the documents generic OCR tools were never trained on.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="order" class="section section-alt">
-      <div class="container order-grid">
-        <div>
-          <h2>Order ahead</h2>
-          <p class="section-lead">Tell us what you want and when. We confirm by phone within 10 minutes during opening hours.</p>
+    <!-- Pricing -->
+    <section id="pricing" class="section section-ink">
+      <div class="container">
+        <p class="eyebrow mono" data-i18n="price.eyebrow">Pricing</p>
+        <h2 data-i18n="price.title">Pay for pages, not seats.</h2>
+        <div class="plans">
+          <article class="plan reveal">
+            <h3 data-i18n="price.p1">Starter</h3>
+            <p class="amount"><span data-i18n="price.p1a">$0</span><small data-i18n="price.per">/ month</small></p>
+            <ul><li data-i18n="price.p1l1">50 pages a month</li><li data-i18n="price.p1l2">Excel and CSV export</li><li data-i18n="price.p1l3">Email support</li></ul>
+            <a href="#start" class="btn btn-ghost" data-i18n="price.choose">Start free</a>
+          </article>
+          <article class="plan plan-featured reveal">
+            <span class="badge mono" data-i18n="price.popular">Most popular</span>
+            <h3 data-i18n="price.p2">Shop</h3>
+            <p class="amount"><span data-i18n="price.p2a">$8</span><small data-i18n="price.per">/ month</small></p>
+            <ul><li data-i18n="price.p2l1">1,000 pages a month</li><li data-i18n="price.p2l2">Google Sheets sync</li><li data-i18n="price.p2l3">Handwriting and VAT fields</li></ul>
+            <a href="#start" class="btn" data-i18n="price.choose2">Choose Shop</a>
+          </article>
+          <article class="plan reveal">
+            <h3 data-i18n="price.p3">Team</h3>
+            <p class="amount"><span data-i18n="price.p3a">$39</span><small data-i18n="price.per">/ month</small></p>
+            <ul><li data-i18n="price.p3l1">10,000 pages a month</li><li data-i18n="price.p3l2">API and webhooks</li><li data-i18n="price.p3l3">Shared review queue</li></ul>
+            <a href="#start" class="btn btn-ghost" data-i18n="price.choose3">Talk to us</a>
+          </article>
         </div>
-        <form class="order-form" novalidate>
-          <label>Name<input name="name" autocomplete="name" required></label>
-          <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9 +\(\)\-]{9,15}"></label>
-          <label>Your order<textarea name="order" rows="3" required placeholder="2 cà phê sữa đá, 1 croissant"></textarea></label>
-          <label>Pickup time<input name="time" type="time" min="07:00" max="21:30" required></label>
-          <button class="btn" type="submit">Send order</button>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container faq-grid">
+        <div>
+          <p class="eyebrow mono">FAQ</p>
+          <h2 data-i18n="faq.title">Questions people ask first.</h2>
+        </div>
+        <div class="faq">
+          <details><summary data-i18n="faq.q1">Can it read messy handwriting?</summary><p data-i18n="faq.a1">Most of it. When Mực is less than confident about a value it marks it for you to check instead of guessing.</p></details>
+          <details><summary data-i18n="faq.q2">Where are my files stored?</summary><p data-i18n="faq.a2">Files are processed and deleted after 24 hours. Exports stay in your own Excel or Google account.</p></details>
+          <details><summary data-i18n="faq.q3">Does it work with my accounting software?</summary><p data-i18n="faq.a3">Anything that imports Excel or CSV works. The Team plan adds an API for direct integration.</p></details>
+          <details><summary data-i18n="faq.q4">What if a total does not match?</summary><p data-i18n="faq.a4">The row is flagged in red with the expected and found totals, so you can fix it in seconds.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="start" class="section cta">
+      <div class="container">
+        <h2 class="cta-title kinetic" data-i18n="cta.title">Less typing. More real work.</h2>
+        <form class="cta-form" novalidate>
+          <label class="sr-only" for="cta-email" data-i18n="cta.label">Email address</label>
+          <input id="cta-email" name="email" type="email" autocomplete="email" required placeholder="you@shop.vn">
+          <button class="btn" type="submit" data-i18n="cta.button">Get 50 free pages</button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
-      </div>
-    </section>
-
-    <section id="visit" class="section">
-      <div class="container visit-grid">
-        <div>
-          <h2>Visit</h2>
-          <p><strong>Address:</strong> 12 Lantern Lane, District 3, Ho Chi Minh City (fictional)</p>
-          <p><strong>Hours:</strong> 7:00–22:00, every day</p>
-          <p><strong>Phone:</strong> 0900 000 000 (placeholder)</p>
-        </div>
-        <div class="map" role="img" aria-label="Map placeholder">Map goes here (Google Maps embed)</div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 Lantern Lane Coffee. Demo website: the business, address and reviews are fictional.</p>
+    <div class="container footer-row">
+      <p><strong>Mực</strong> · <span data-i18n="footer.tag">Paper in. Clean data out.</span></p>
+      <p class="mono" data-i18n="footer.demo">Demo website: Mực is a fictional product; names, prices and figures are illustrative.</p>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

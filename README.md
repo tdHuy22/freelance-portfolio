@@ -7,7 +7,7 @@ Small, complete projects that show how I work: clear scope, tested code, and a R
 | Project | What it solves | Stack |
 |---|---|---|
 | [Google Sheets Sales & Stock Automation](01-sheets-sales-automation/) | Turns a raw order sheet into a daily summary with a chart, and emails low-stock alerts | Google Apps Script, JavaScript, Node tests |
-| [Landing Page: Lantern Lane Coffee](02-landing-page/) ([live demo](https://tdhuy22.github.io/freelance-portfolio/)) | A fast, mobile-friendly one-page site for a small business, with an order form | HTML, CSS, JavaScript |
+| [Landing Page: Mực](02-landing-page/) ([live demo](https://tdhuy22.github.io/freelance-portfolio/)) | Bilingual EN/VI landing page for an AI product, with an animated invoice-to-table demo, before/after slider and scroll motion | HTML, CSS, JavaScript |
 | [Excel Cleaner](03-excel-cleaner/) | Cleans messy CSV/Excel exports (duplicates, dates, phones, VND/US/EU numbers) and lists what needs review | Python, pandas, openpyxl, pytest |
 
 ## How I work
